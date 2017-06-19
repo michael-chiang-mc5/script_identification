@@ -254,7 +254,7 @@ int main(int argc, char** argv) {
     else
       last_filename = filename;
 
-    std::cout << "----------  " << filename << " ----------" << std::endl;
+    //std::cout << "----------  " << filename << " ----------" << std::endl;
 
     cv::Mat all_probs;
     for (int i=0; i<1000; i++) 
@@ -294,24 +294,32 @@ int main(int argc, char** argv) {
     cv::Point minLoc;
     cv::Point maxLoc;
     cv::minMaxLoc(avg,&minVal,&maxVal,&minLoc,&maxLoc);
-  
+
+    /*  
     std::cout << "--------                                                 --------" << std::endl;
     std::cout << "           Image Classified as : " << maxLoc.y << " (" << maxVal << ") : " 
               << classifier.labels_[maxLoc.y] << std::endl;
     std::cout << "           GT Label is :         " << label << std::endl; 
     std::cout << "----------                                               --------" << std::endl;
+    */
+
+    // Print languageID, score, language
+    // Example: 1, 1.53234, arabic
+    std::cout << maxLoc.y << "\t" << maxVal << "\t" << classifier.labels_[maxLoc.y];
 
     if (label == int(maxLoc.y))
       ok++;
     else
       err++;
 
-    std::cout << "Partial Accuracy : " << float(ok)/float(ok+err) << std::endl;
+    //std::cout << "Partial Accuracy : " << float(ok)/float(ok+err) << std::endl;
   }
 
+  /*
   std::cout << "------------" << std::endl;
   std::cout << "------------" << std::endl;
   std::cout << "Accuracy : " << float(ok)/float(ok+err) << std::endl;
   std::cout << "------------" << std::endl;
   std::cout << "------------" << std::endl;
+  */
 }
