@@ -8,6 +8,8 @@
 #include <string>
 #include <utility>
 #include <vector>
+#include <iostream>
+#include <fstream>
 
 using namespace caffe;  // NOLINT(build/namespaces)
 using std::string;
@@ -246,6 +248,10 @@ int main(int argc, char** argv) {
   std::string filename;
   std::string last_filename;
   int label;
+
+  std::ofstream output_file;
+  output_file.open ("/home/ubuntu/script_identification/mc/output.txt");
+
   while (infile >> filename >> label) {
 
     filename = filename.substr(0,filename.find_last_of("_")+1);
@@ -305,7 +311,10 @@ int main(int argc, char** argv) {
 
     // Print languageID, score, language
     // Example: 1, 1.53234, arabic
-    std::cout << maxLoc.y << "\t" << maxVal << "\t" << classifier.labels_[maxLoc.y];
+    //std::cout << maxLoc.y << "\t" << maxVal << "\t" << classifier.labels_[maxLoc.y];
+    output_file << maxLoc.y << "\t" << maxVal << "\t" << classifier.labels_[maxLoc.y] << "\n"; 
+
+
 
     if (label == int(maxLoc.y))
       ok++;
@@ -322,4 +331,6 @@ int main(int argc, char** argv) {
   std::cout << "------------" << std::endl;
   std::cout << "------------" << std::endl;
   */
+  output_file.close();
+
 }
