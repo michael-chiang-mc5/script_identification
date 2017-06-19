@@ -6,11 +6,11 @@ IF(NOT CMAKE_BUILD_TYPE)
   SET(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the type of build, options are: None (CMAKE_CXX_FLAGS or CMAKE_C_FLAGS used) Debug Release RelWithDebInfo MinSizeRel." FORCE)
 ENDIF()
 
-include_directories ("/usr/src/caffe-git/caffe/include/")
-include_directories ("/usr/src/caffe-git/caffe/.build_release/src/")
-include_directories ("/usr/local/cuda-7.5/targets/x86_64-linux/include/")
+include_directories ("/home/ubuntu/CTPN_GPU/caffe/include/")
+include_directories ("/home/ubuntu/CTPN_GPU/caffe/.build_release/src/")
+include_directories ("/usr/local/cuda-8.0/targets/x86_64-linux/include/")
 include_directories ("/usr/include/hdf5/serial/")
-link_directories ("/usr/src/caffe-git/caffe/build/lib/")
+link_directories ("/home/ubuntu/CTPN_GPU/caffe/build/lib/")
 
 set (EXTRA_LIBS ${EXTRA_LIBS} libcaffe.so -lprotobuf -lglog -lboost_system -lopencv_core -lopencv_highgui -lopencv_imgproc)
 
