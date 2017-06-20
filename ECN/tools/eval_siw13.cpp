@@ -312,7 +312,7 @@ int main(int argc, char** argv) {
     // Print languageID, score, language
     // Example: 1, 1.53234, arabic
     //std::cout << maxLoc.y << "\t" << maxVal << "\t" << classifier.labels_[maxLoc.y];
-    output_file << maxLoc.y << "\t" << maxVal << "\t" << classifier.labels_[maxLoc.y] << "\n"; 
+    output_file << maxLoc.y << "\t" << maxVal << "\t" << classifier.labels_[maxLoc.y] << "\t" << filename << "\n"; 
 
 
 

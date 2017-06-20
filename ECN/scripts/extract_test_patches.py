@@ -11,7 +11,7 @@ with open(fname) as f:
   content = f.readlines()
 
 for line in content:
-  gt = line.rstrip().split(' ')
+  gt = line.rstrip().split('\t')
   filename = 'orig/'+gt[0]
   label = gt[1]
 
